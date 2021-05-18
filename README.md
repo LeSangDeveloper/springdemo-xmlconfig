@@ -201,11 +201,11 @@ foo.team=arsenal
 ...
 ```
 
-#### BeanScope and lifecycle
-## Singleton
+##BeanScope and lifecycle
+### Singleton
 Default Scope of bean which live all period application run.
 
-## Prototype 
+### Prototype 
 Create once when we use context.getBean(). Configure by:
 
 ```
@@ -213,6 +213,35 @@ Create once when we use context.getBean(). Configure by:
     <bean id="myCoach"
           class="com.company.TrackCoach"
           scope="prototype">
+        <constructor-arg ref="fortuneService">
+        </constructor-arg>
+    </bean>
+...
+```
+
+## Add custom method in bean life cycle
+### Create method in class of bean
+The method can be named any name, return any type but should be void, and cannot have param.
+```
+...
+	public void testInit() {
+		System.out.println("Bean just created");
+	}
+
+	public void testDestroy() {
+		System.out.println("Bean destroyed");
+	}
+...
+```
+
+### Add method to life cycle of bean
+We add those methods in XMl config file following:
+```
+...
+    <bean id="myCoach"
+          class="com.company.TrackCoach"
+          init-method="testInit"
+          destroy-method="testDestroy">
         <constructor-arg ref="fortuneService">
         </constructor-arg>
     </bean>

@@ -18,4 +18,12 @@ public class TrackCoach implements Coach {
 		return fortuneService.getFortune();
 	}
 
+	public void testInit() {
+		System.out.println("Bean just created");
+	}
+
+	public void testDestroy() {
+		System.out.println("Bean destroyed");
+	}
+
 }

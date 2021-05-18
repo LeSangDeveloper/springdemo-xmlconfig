@@ -12,5 +12,7 @@ public class BeanScopeDemoApp {
 
         boolean result = (theCoach == alphaCoach);
         System.out.println(result);
+
+        context.close();
     }
 }

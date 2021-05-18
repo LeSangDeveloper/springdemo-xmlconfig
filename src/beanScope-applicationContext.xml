@@ -12,7 +12,8 @@
 
     <bean id="myCoach"
           class="com.company.TrackCoach"
-          scope="prototype">
+          init-method="testInit"
+          destroy-method="testDestroy">
         <constructor-arg ref="fortuneService">
         </constructor-arg>
     </bean>
