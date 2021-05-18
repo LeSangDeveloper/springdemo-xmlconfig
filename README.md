@@ -74,7 +74,7 @@ public interface FortuneService {
 }
 ```
 
-### Create class implment interface
+### Create class implement interface
 We create a class implement interface created, class maybe called helper.
 Example:
 ```
@@ -88,6 +88,8 @@ public class FortuneServiceImpl implements FortuneService {
 ```
 
 ### In XML configurable file
+
+#### By constructor
 We declare bean for interface named FortuneService we created and inject to param for constructor class which we inject FortuneService to.
 Example:
 ```
@@ -99,4 +101,32 @@ Example:
 	<constructor-arg ref="fortuneService">
 	</constructor-arg>
 </bean>
+```
+
+#### By getter method
+Just like by constructor, but we won't inject Fortune through constructor, we will inject through setter method like
+```
+package com.company;
+
+public class CricketCoach implements Coach {
+
+    private FortuneService fortuneService;
+
+    public CricketCoach() {
+
+    }
+
+    public void setFortuneService(FortuneService fortuneService) {
+        this.fortuneService = fortuneService;
+    }
+...
+```
+and in XML file
+
+```
+...
+	<bean id="myCricketCoach" class="com.company.CricketCoach">
+		<property name="fortuneService" ref="fortuneService"></property>
+	</bean>
+...
 ```

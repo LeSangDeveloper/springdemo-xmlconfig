@@ -16,6 +16,10 @@
 		</constructor-arg>
 	</bean>
 
+	<bean id="myCricketCoach" class="com.company.CricketCoach">
+		<property name="fortuneService" ref="fortuneService"></property>
+	</bean>
+	
 	<bean id="myLoggerConfig" class="com.company.MyLoggerConfig" init-method="initLogger">
 		<property name="rootLoggerLevel" value="FINE" />
 		<property name="printedLoggerLevel" value="FINE"/>
