@@ -12,10 +12,14 @@
 
     <bean id="myCoach"
           class="com.company.TrackCoach"
+          scope="prototype"
           init-method="testInit"
-          destroy-method="testDestroy">
+          destroy-method="destroy">
         <constructor-arg ref="fortuneService">
         </constructor-arg>
     </bean>
+
+    <!--  Bean custom processor to handle calling destroy methods on prototype scoped beans  -->
+    <bean id="customProcessor" class="com.company.MyCustomBeanProcessor"> </bean>
 
 </beans>
