@@ -3,7 +3,8 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-        System.out.println("Java nhu cut");
+        Coach theCoach = new BaseBall();
+
+        System.out.println(theCoach.getDailyWorkout());
     }
 }
