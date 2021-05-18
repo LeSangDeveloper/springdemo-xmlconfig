@@ -166,3 +166,37 @@ and in XML file
 	</bean>
 ...
 ```
+
+## Inject value from a Properties file
+### Create a properties file
+In this example, we created properties file like sport.properties
+```
+foo.email=test@gmail.com
+foo.team=arsenal
+```
+
+### Declare it in XML Config file
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="classpath:sport.properties" />
+...
+```
+
+### Using value of properties file
+```
+...
+	<bean id="myCricketCoach" class="com.company.CricketCoach">
+		<property name="fortuneService" ref="fortuneService"></property>
+		<property name="emailAddress" value="${foo.email}"></property>
+		<property name="team" value="${foo.team}"></property>
+	</bean>
+...
+```
