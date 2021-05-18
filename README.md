@@ -200,3 +200,21 @@ foo.team=arsenal
 	</bean>
 ...
 ```
+
+#### BeanScope and lifecycle
+## Singleton
+Default Scope of bean which live all period application run.
+
+## Prototype 
+Create once when we use context.getBean(). Configure by:
+
+```
+...
+    <bean id="myCoach"
+          class="com.company.TrackCoach"
+          scope="prototype">
+        <constructor-arg ref="fortuneService">
+        </constructor-arg>
+    </bean>
+...
+```
