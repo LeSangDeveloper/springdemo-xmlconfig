@@ -1,1 +1,1 @@
-# springdemo-xmlconfig
+# springdemo using xmlconfig without maven
