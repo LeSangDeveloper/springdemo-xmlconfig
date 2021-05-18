@@ -13,11 +13,15 @@ public class Main {
 
         System.out.println(theCoach.getDailyFortune());
 
-        Coach theCricketCoach = context.getBean("myCricketCoach", Coach.class);
+        CricketCoach theCricketCoach = context.getBean("myCricketCoach", CricketCoach.class);
 
         System.out.println(theCricketCoach.getDailyWorkout());
 
         System.out.println(theCricketCoach.getDailyFortune());
+
+        System.out.println(theCricketCoach.getEmailAddress());
+
+        System.out.println(theCricketCoach.getTeam());
 
         context.close();
     }

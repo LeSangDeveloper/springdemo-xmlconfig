@@ -130,3 +130,39 @@ and in XML file
 	</bean>
 ...
 ```
+
+## Injection Literals value from XML file
+### Create field and setter, getter of that field
+```
+...
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getTeam() {
+        return team;
+    }
+
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
+    private String emailAddress;
+    private String team;
+...
+```
+
+### configure in XML file
+```
+...
+	<bean id="myCricketCoach" class="com.company.CricketCoach">
+		<property name="fortuneService" ref="fortuneService"></property>
+		<property name="emailAddress" value="test@gmail.com"></property>
+		<property name="team" value="Arsenal"></property>
+	</bean>
+...
+```
