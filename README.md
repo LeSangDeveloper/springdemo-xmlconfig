@@ -1,4 +1,4 @@
-# pure Spring 5 demo (config Bean by XML and without maven)
+# Pure Spring 5 demo (config Bean by XML and without maven)
 Demo a Spring 5 without maven and annotation
 
 ## Setup
