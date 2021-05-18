@@ -60,3 +60,43 @@ In this example, we use .xml file to config bean for Object Fatory inject to cli
 ```
 Id in <bean> tag using indentify Bean managed by Object Factory and class property mark class will inject when Client request that bean's id.
 Bean have name myLoggerConfig using set logging's configuration. See more: https://www.tutorialspoint.com/log4j/log4j_logging_levels.htm.
+
+## Dependency Injection bean by constructor in XML
+
+### Create Interface
+create interface make helper for Object Factory inject through method declare in interface and implement in class which implement interface.
+Example: we created interface named "FortuneService"
+```
+package com.company;
+
+public interface FortuneService {
+    String getFortune();
+}
+```
+
+### Create class implment interface
+We create a class implement interface created, class maybe called helper.
+Example:
+```
+package com.company;
+
+public class FortuneServiceImpl implements FortuneService {
+    public String getFortune() {
+        return "It's a happy day";
+    }
+}
+```
+
+### In XML configurable file
+We declare bean for interface named FortuneService we created and inject to param for constructor class which we inject FortuneService to.
+Example:
+```
+<bean id="fortuneService" class="com.company.FortuneServiceImpl">
+</bean>
+
+<bean id="myCoach"
+				class="com.company.TrackCoach">
+	<constructor-arg ref="fortuneService">
+	</constructor-arg>
+</bean>
+```
